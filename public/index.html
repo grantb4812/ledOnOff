@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LED On Off Project</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.js"></script>
+	
+</head>
+
+<body>
+	<button class="onButton">On</button>
+	<button class="offButton">Off</button>
+
+
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			console.log('jQuery working!');
+
+			$('.onButton').on('click', function() {
+				console.log('on button clicked');
+				socket.emit('led:on');
+			});
+
+			$('.offButton').on('click', function() {
+				console.log('off button clicked');
+				socket.emit('led:off');
+			});
+		});
+	</script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+  		var socket = io();
+	</script>
+</body>
+</html>
